@@ -1,0 +1,270 @@
+/* ===== HALAMAN KATALOG ===== */
+
+/* Judul pembuka katalog */
+.catalog-intro {
+    padding: 2rem 0;
+}
+
+.catalog-intro h1 {
+    font-size: 2.2rem;
+    color: #0b7285;
+    margin-bottom: 0.7rem;
+}
+
+.catalog-intro h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #f08c46;
+    margin-top: 0.7rem;
+    border-radius: 10px;
+}
+
+.catalog-intro .lead {
+    color: #557575;
+    font-size: 1.05rem;
+}
+
+/* ===== Layout Utama Katalog ===== */
+
+.catalog-layout {
+    display: grid;
+
+    grid-template-areas:
+        "intro"
+        "content"
+        "sidebar";
+
+    gap: 1.5rem;
+}
+
+.catalog-intro {
+    grid-area: intro;
+}
+
+.catalog-content {
+    grid-area: content;
+    min-width: 0;
+}
+
+.catalog-sidebar {
+    grid-area: sidebar;
+}
+
+/* ===== Card Katalog ===== */
+
+.catalog-card,
+.sidebar-card {
+    background: #ffffff;
+    padding: 1.4rem;
+    border: 1px solid #d9e7e5;
+    border-radius: 1rem;
+    box-shadow: 0 6px 18px rgba(24, 59, 59, 0.08);
+}
+
+.catalog-card + .catalog-card {
+    margin-top: 1.2rem;
+}
+
+.catalog-card h2,
+.sidebar-card h2 {
+    color: #0b7285;
+    margin-bottom: 1rem;
+}
+
+.catalog-card h2::before,
+.sidebar-card h2::before {
+    content: "✦";
+    color: #f08c46;
+    margin-right: 0.5rem;
+}
+
+/* ===== TABEL PAKET ===== */
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 0.8rem;
+}
+
+table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+caption {
+    text-align: left;
+    padding-bottom: 0.8rem;
+    font-weight: 700;
+    color: #183b3b;
+}
+
+thead {
+    background: #0b7285;
+    color: #ffffff;
+}
+
+th,
+td {
+    padding: 0.85rem;
+    border: 1px solid #cfe0dd;
+    text-align: left;
+}
+
+th {
+    font-weight: 700;
+}
+
+tbody tr:nth-child(even) {
+    background: #edf7f5;
+}
+
+tbody tr:hover {
+    background: #fff2df;
+    transition: 0.2s;
+}
+
+tbody tr:first-child {
+    font-weight: 600;
+}
+
+tbody tr:last-child td {
+    border-bottom: 3px solid #f08c46;
+}
+
+/* ===== KARTU DESTINASI ===== */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.product-card {
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #d9e7e5;
+    border-radius: 0.9rem;
+    box-shadow: 0 5px 15px rgba(24, 59, 59, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(24, 59, 59, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.product-card div {
+    padding: 1rem;
+}
+
+.product-card h3 {
+    color: #0b7285;
+    margin-bottom: 0.4rem;
+}
+
+.product-card p {
+    color: #557575;
+    font-size: 0.95rem;
+}
+
+/* ===== SIDEBAR ===== */
+
+.catalog-sidebar {
+    min-width: 0;
+}
+
+.sidebar-card {
+    background: linear-gradient(
+        145deg,
+        #ffffff,
+        #edf7f5
+    );
+}
+
+.catalog-sidebar h3 {
+    color: #183b3b;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.catalog-sidebar ul,
+.catalog-sidebar ol {
+    padding-left: 1.4rem;
+    margin-bottom: 1.2rem;
+}
+
+.catalog-sidebar li {
+    margin-bottom: 0.45rem;
+}
+
+.catalog-sidebar li::marker {
+    color: #f08c46;
+    font-weight: bold;
+}
+
+.catalog-sidebar a {
+    font-weight: 700;
+}
+
+/* ===== AUDIO ===== */
+
+.catalog-card audio {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* ===== VIDEO ===== */
+
+.local-video {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 0.8rem;
+    background: #102a2a;
+}
+
+.pantai {
+    width: 100px;
+}
+
+/* ===== RESPONSIVE TABLET ===== */
+
+@media (min-width: 768px) {
+
+    .catalog-intro h1 {
+        font-size: 2.7rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* ===== RESPONSIVE DESKTOP ===== */
+
+@media (min-width: 1024px) {
+
+    .catalog-layout {
+        grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+
+        grid-template-areas:
+            "intro intro"
+            "content sidebar";
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
